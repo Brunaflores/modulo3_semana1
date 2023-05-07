@@ -75,13 +75,12 @@ CREATE TABLE cart_item (
   qty numeric(19,4) NOT NULL
 );
 
-CREATE TABLE public.despesas (
-    id bigserial NOT NULL,
-    credor varchar(45) NOT NULL,
-    vencimento date NOT NULL,
-    pagamento date NULL,
-    valor numeric(19, 2) NOT NULL DEFAULT '0'::numeric,
-    descrição varchar(45) NOT NULL,
-    status varchar(50) NOT NULL DEFAULT 'Pendente'::character varying,
-    CONSTRAINT despesas_pkey PRIMARY KEY (id)
-    );
+CREATE TABLE despesas (
+  id SERIAL PRIMARY KEY,
+  credor VARCHAR(255) NOT NULL,
+  data_vencimento DATE NOT NULL,
+  data_pagamento DATE,
+  valor NUMERIC(10, 2) NOT NULL,
+  descricao TEXT,
+status VARCHAR(10) NOT NULL DEFAULT 'Pendente'
+);
